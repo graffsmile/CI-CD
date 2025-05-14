@@ -31,24 +31,24 @@ jobs:
             - name: Проверка изменения
               uses: actions/checkout@v2
 
-              - name: Install python
-                uses: actioins/setup-python@v5
-                with:
-                    python-version: 3.12
+            - name: Install python
+              uses: actioins/setup-python@v5
+              with:
+                  python-version: 3.12
 
-              - name: Install requirements
-                run: pip install -r requirements.txt
+            - name: Install requirements
+              run: pip install -r requirements.txt
 
-              - name: The Linter
-                run: flake8 CI-CD --exclude migrations --ignore E501,F401,E302,W293,W391,W292
-              - name: Tests
-                run: puython CI-CD/manage.py test
-                env:
-                  PG_NAME: ${{ env.PG_NAME }}
-                  PG_USER: ${{ env.PG_USER }}
-                  PG_HOST: ${{ env.PG_HOST }}
-                  PG_PORT: ${{ env.PG_PORT }}
-                  PG_PASSWORD: ${{ env.PG_PASSWORD }}
+            - name: The Linter
+              run: flake8 CI-CD --exclude migrations --ignore E501,F401,E302,W293,W391,W292
+            - name: Tests
+              run: puython CI-CD/manage.py test
+              env:
+                PG_NAME: ${{ env.PG_NAME }}
+                PG_USER: ${{ env.PG_USER }}
+                PG_HOST: ${{ env.PG_HOST }}
+                PG_PORT: ${{ env.PG_PORT }}
+                PG_PASSWORD: ${{ env.PG_PASSWORD }}
 
 deploy:
     runs-on: ubuntu-latest

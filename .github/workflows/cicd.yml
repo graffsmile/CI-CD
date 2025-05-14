@@ -49,3 +49,18 @@ jobs:
                   PG_HOST: ${{ env.PG_HOST }}
                   PG_PORT: ${{ env.PG_PORT }}
                   PG_PASSWORD: ${{ env.PG_PASSWORD }}
+
+deploy:
+    runs-on: ubuntu-latest
+    # needs: testing
+    steps:
+        - name: Deploy
+          uses: appleboy/ssh-action@master
+          with:
+              host: 83.166.245.38
+              username: root
+              password: IV3viw6nwNEJN7CQ
+              script: |
+                cd /home/ubuntu/stock-product
+                git pull
+                sudo sysemctl restart gunicorn

@@ -1,0 +1,8 @@
+/.venv/
+/config.env
+/.idea/
+/__pycache__/
+/stocks_products/__pycache__/
+/logistic/__pycache__/
+/config-example.env
+/config.py

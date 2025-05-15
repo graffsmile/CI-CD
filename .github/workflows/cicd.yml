@@ -14,7 +14,7 @@ jobs:
             PG_PORT: ${{ secrets.PG_PORT }}
             PG_PASSWORD: ${{ secrets.PG_PASSWORD }}
         services:
-            postgres_nmain:
+            postgres_main:
                 image: postgres:latest
                 env:
                     POSTGRES_USERS: ${{ env.PG_USER }}
@@ -61,6 +61,7 @@ jobs:
                   username: root
                   password: IV3viw6nwNEJN7CQ
                   script: |
+                    git config --global --add safe.directory /home/ubuntu/stock-product
                     cd /home/ubuntu/stock-product
                     git pull
                     sudo systemctl restart gunicorn

@@ -40,9 +40,9 @@ jobs:
               run: pip install -r requirements.txt
 
             - name: The Linter
-              run: flake8 1.5-CI-CD --exclude migrations --ignore E501,F401,E302,W293,W391,W292
+              run: flake8 . --exclude migrations --ignore E501,F401,E302,W293,W391,W292
             - name: Tests
-              run: puython 1.5-CI-CD/manage.py test
+              run: puython ./manage.py test
               env:
                 PG_NAME: ${{ env.PG_NAME }}
                 PG_USER: ${{ env.PG_USER }}

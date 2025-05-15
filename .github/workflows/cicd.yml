@@ -63,4 +63,4 @@ jobs:
                   script: |
                     cd /home/ubuntu/stock-product
                     git pull
-                    sudo sysemctl restart gunicorn
+                    sudo systemctl restart gunicorn

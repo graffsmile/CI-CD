@@ -57,9 +57,9 @@ jobs:
             - name: Deploy
               uses: appleboy/ssh-action@master
               with:
-                  host: 89.104.67.241
+                  host: 83.166.245.38
                   username: root
-                  password: xI6xnHfjiKpXze0X
+                  password: IV3viw6nwNEJN7CQ
                   script: |
                     cd /home/ubuntu/stock-product
                     git pull
